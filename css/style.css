@@ -237,3 +237,56 @@ select:focus {
 .mt-4 {
   margin-top: 2rem;
 }
+
+.lista-integrantes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.integrante-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.integrante-item:last-child {
+  border-bottom: none;
+}
+
+.integrante-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+
+.boton-peligro {
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radio-borde);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.boton-peligro:hover {
+  background-color: var(--color-error);
+  color: #fff;
+}
+
+.border-top {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
