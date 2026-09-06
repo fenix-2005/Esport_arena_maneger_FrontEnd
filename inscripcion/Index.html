@@ -1,80 +1,84 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Inscripción a Torneo | eSports Arena Manager</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <header class="py-3 shadow-sm">
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
-      <h1 class="titulo-principal">eSports Arena Manager</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="../torneos/index.html" class="nav-link">Torneos</a></li>
-          <li class="nav-item"><a href="index.html" class="nav-link active">Inscripción</a></li>
-          <li class="nav-item"><a href="../equipos/index.html" class="nav-link">Equipos</a></li>
-          <li class="nav-item"><a href="../perfil/index.html" class="nav-link">Perfil</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inscripción a Torneo | eSports Arena Manager</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <header class="py-3 shadow-sm">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <h1 class="titulo-principal">eSports Arena Manager</h1>
+            <nav>
+                <ul class="nav">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="../torneos/index.html" class="nav-link">Torneos</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Inscripción</a></li>
+                <li class="nav-item"><a href="../equipos/index.html" class="nav-link">Equipos</a></li>
+                <li class="nav-item"><a href="../perfil/index.html" class="nav-link">Perfil</a></li>
+                </ul>
+            </nav>
+            </div>
+        </header>
 
-  <main class="container my-5">
-    <section class="card tarjeta p-4">
-      <h2>Inscripción a Torneo</h2>
-      <p>Registra tu participación individual o la de tu equipo.</p>
+        <main class="container my-5">
+            <section class="card tarjeta p-4">
+            <h2>Inscripción a Torneo</h2>
+            <p>Registra tu participación individual o la de tu equipo.</p>
 
-      <form id="form-inscripcion" novalidate>
+            <form id="form-inscripcion" novalidate>
+                
+                <div class="grupo-formulario">
+                <label for="tipo-participante">Tipo de Participante:</label>
+                <select id="tipo-participante" name="tipo-participante">
+                    <option value="">-- Selecciona --</option>
+                    <option value="jugador">Jugador Individual</option>
+                    <option value="equipo">Equipo</option>
+                </select>
+                <span id="error-tipo" class="mensaje-error"></span>
+                </div>
+
+
+                <div class="grupo-formulario">
+                <label for="equipo-propio">Selecciona tu equipo (Si aplica):</label>
+                <select id="equipo-propio" name="equipo-propio">
+                    <option value="">-- No aplica / Juego individual --</option>
+                </select>
+                <span id="error-equipo" class="mensaje-error"></span>
+                </div>
+
+                <div class="grupo-formulario">
+                <label for="correo">Correo Electrónico de Contacto:</label>
+                <input type="email" id="correo" name="correo" autocomplete="email" placeholder="tu@correo.com">
+                <span id="error-correo" class="mensaje-error"></span>
+                </div>
+
+                <div class="grupo-formulario">
+                <label for="torneo">Torneo a Inscribirse:</label>
+                <select id="torneo" name="torneo">
+                    <option value="">-- Selecciona un torneo abierto --</option>
+                </select>
+                <span id="error-torneo" class="mensaje-error"></span>
+                </div>
+
+                <article class="resumen-requisitos tarjeta">
+                <h3>Resumen de Requisitos</h3>
+                <p id="texto-requisitos">Selecciona un torneo para ver sus reglas, cupos y restricciones.</p>
+                </article>
+
+                <button type="submit" class="btn boton-primario">Confirmar Inscripción</button>
+            </form>
+            </section>
+        </main>
+
+        <footer class="py-4 mt-auto text-center">
+            <p class="mb-0 ">© 2026 eSports Arena Manager. Todos los derechos reservados.</p>
+        </footer>
         
-        <div class="grupo-formulario">
-          <label for="tipo-participante">Tipo de Participante:</label>
-          <select id="tipo-participante" name="tipo-participante">
-            <option value="">-- Selecciona --</option>
-            <option value="jugador">Jugador Individual</option>
-            <option value="equipo">Equipo</option>
-          </select>
-          <span id="error-tipo" class="mensaje-error"></span>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/app.js"></script>
 
-
-        <div class="grupo-formulario">
-          <label for="equipo-propio">Selecciona tu equipo (Si aplica):</label>
-          <select id="equipo-propio" name="equipo-propio">
-            <option value="">-- No aplica / Juego individual --</option>
-          </select>
-          <span id="error-equipo" class="mensaje-error"></span>
-        </div>
-
-        <div class="grupo-formulario">
-          <label for="correo">Correo Electrónico de Contacto:</label>
-          <input type="email" id="correo" name="correo" autocomplete="email" placeholder="tu@correo.com">
-          <span id="error-correo" class="mensaje-error"></span>
-        </div>
-
-        <div class="grupo-formulario">
-          <label for="torneo">Torneo a Inscribirse:</label>
-          <select id="torneo" name="torneo">
-            <option value="">-- Selecciona un torneo abierto --</option>
-          </select>
-          <span id="error-torneo" class="mensaje-error"></span>
-        </div>
-
-        <article class="resumen-requisitos tarjeta">
-          <h3>Resumen de Requisitos</h3>
-          <p id="texto-requisitos">Selecciona un torneo para ver sus reglas, cupos y restricciones.</p>
-        </article>
-
-        <button type="submit" class="btn boton-primario">Confirmar Inscripción</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="py-4 mt-auto text-center">
-    <p class="mb-0 ">© 2026 eSports Arena Manager. Todos los derechos reservados.</p>
-  </footer>
-</body>
+    </body>
 </html>
