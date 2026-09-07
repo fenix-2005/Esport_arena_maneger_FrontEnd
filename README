@@ -1,8 +1,7 @@
 # eSports Arena Manager - Frontend
 
 ## Descripción del Proyecto
-eSports Arena Manager es una plataforma para organizar torneos de videojuegos competitivos. Este repositorio contiene la capa de presentación (Frontend)
+Este proyecto es un prototipo interactivo diseñado para la gestión y visualización de torneos de eSports.
 
-## Integrantes
-
+El sistema permite a los usuarios navegar por un catálogo de competiciones de videojuegos, buscar eventos específicos mediante filtros, inscribir nuevos equipos, registrar participantes en torneos activos y simular la vista de un perfil de usuario dependiendo de su rol dentro de la plataforma (visitante, organizador o administrador).
 
