@@ -23,55 +23,64 @@
             </div>
         </header>
 
-        <main class="container my-5">
-            <section class="card tarjeta p-4">
-            <h2>Inscripción a Torneo</h2>
-            <p>Registra tu participación individual o la de tu equipo.</p>
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                <div class="card tarjeta border-secondary p-4">
+                    <h3 class="text-info text-center mb-4">Inscripción de Jugador</h3>
+                    
+                    <div id="mensaje-error" class="alert alert-danger d-none" role="alert"></div>
 
-            <form id="form-inscripcion" novalidate>
-                
-                <div class="grupo-formulario">
-                <label for="tipo-participante">Tipo de Participante:</label>
-                <select id="tipo-participante" name="tipo-participante">
-                    <option value="">-- Selecciona --</option>
-                    <option value="jugador">Jugador Individual</option>
-                    <option value="equipo">Equipo</option>
-                </select>
-                <span id="error-tipo" class="mensaje-error"></span>
+                    <form id="form-registro">
+                    
+                    
+                    <div class="row mb-3">
+
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label text-light">Nombre Perfil o Apodo *</label>
+                            <input type="text" id="apodo" class="form-control bg-dark text-light border-secondary" maxlength="100">
+                        </div>
+
+                        <div class="col-md-6">
+                             <label for="run" class="form-label text-light">RUN *</label>
+                            <input type="text" id="run" class="form-control bg-dark text-light border-secondary" placeholder="Sin puntos ni guion (Ej: 19011022K)" maxlength="9">
+                        </div>
+                    
+
+                        <div class="col-md-6">
+                            <label for="fecha-nac" class="form-label text-light">Fecha Nacimiento (Opcional)</label>
+                            <input type="date" id="fecha-nac" class="form-control bg-dark text-light border-secondary" placeholder="DD/MM/YYYY" onfocus="(this.type='date')" onblur="if(this.value===''){this.type='text'}">
+                        </div>
+            
+
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label text-light">Nombres *</label>
+                            <input type="text" id="nombre" class="form-control bg-dark text-light border-secondary" maxlength="50">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="apellidos" class="form-label text-light">Apellidos *</label>
+                            <input type="text" id="apellidos" class="form-control bg-dark text-light border-secondary" maxlength="100">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label for="correo" class="form-label text-light">Correo Electrónico *</label>
+                            <input type="email" id="correo" class="form-control bg-dark text-light border-secondary" placeholder="@duoc.cl, @profesor.duoc.cl o @gmail.com" maxlength="100">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="contrasena" class="form-label text-light">Contraseña *</label>
+                            <input type="password" id="contrasena" class="form-control bg-dark text-light border-secondary" placeholder="Entre 4 y 10 caracteres" minlength="4" maxlength="10">
+                        </div>
+
+                        <button type="submit" class="btn boton-primario button-top">Crear Cuenta</button>
+                    </div>
+                    </form>
                 </div>
-
-
-                <div class="grupo-formulario">
-                <label for="equipo-propio">Selecciona tu equipo (Si aplica):</label>
-                <select id="equipo-propio" name="equipo-propio">
-                    <option value="">-- No aplica / Juego individual --</option>
-                </select>
-                <span id="error-equipo" class="mensaje-error"></span>
-                </div>
-
-                <div class="grupo-formulario">
-                <label for="correo">Correo Electrónico de Contacto:</label>
-                <input type="email" id="correo" name="correo" autocomplete="email" placeholder="tu@correo.com">
-                <span id="error-correo" class="mensaje-error"></span>
-                </div>
-
-                <div class="grupo-formulario">
-                <label for="torneo">Torneo a Inscribirse:</label>
-                <select id="torneo" name="torneo">
-                    <option value="">-- Selecciona un torneo abierto --</option>
-                </select>
-                <span id="error-torneo" class="mensaje-error"></span>
-                </div>
-
-                <article class="resumen-requisitos tarjeta">
-                <h3>Resumen de Requisitos</h3>
-                <p id="texto-requisitos">Selecciona un torneo para ver sus reglas, cupos y restricciones.</p>
-                </article>
-
-                <button type="submit" class="btn boton-primario">Confirmar Inscripción</button>
-            </form>
-            </section>
-        </main>
+            </div>
+        </div>
 
         <footer class="py-4 mt-auto text-center">
             <p class="mb-0 ">© 2026 eSports Arena Manager. Todos los derechos reservados.</p>

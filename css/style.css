@@ -290,3 +290,23 @@ select:focus {
 .mb-5 {
   margin-bottom: 3rem;
 }
+
+.mb-10 {
+  margin-bottom: 5rem;
+}
+
+.video-centrado {
+  max-width: 700px;         
+  margin: 0 auto;           
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;       
+  overflow: hidden;         
+  
+}
+.seccion-video {
+  margin-bottom: 150px; 
+}
+
+.button-top {
+  margin-top: 50px; 
+}

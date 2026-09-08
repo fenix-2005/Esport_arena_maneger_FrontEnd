@@ -1,74 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const formInscripcion = document.getElementById("form-inscripcion");
-    const selectTorneo = document.getElementById("torneo-seleccion");
-    const resumenRequisitos = document.getElementById("resumen-requisitos");
+    const formulario = document.getElementById("form-registro");
+    const mensajeError = document.getElementById("mensaje-error");
 
-
-    if (selectTorneo && resumenRequisitos) {
-        selectTorneo.addEventListener("change", (evento) => {
-            const torneoElegido = evento.target.value;
+    if (formulario) {
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault(); 
             
-            if (torneoElegido === "valorant") {
-                resumenRequisitos.innerHTML = "<strong class='text-info'>Requisitos Valorant:</strong> Equipo de 5 jugadores, cuentas nivel 20+, sin baneos recientes en Vanguard.";
-            } else if (torneoElegido === "cs2") {
-                resumenRequisitos.innerHTML = "<strong class='text-info'>Requisitos CS2:</strong> Equipo de 5 jugadores, cuenta Prime activa obligatoria.";
-            } else {
-                resumenRequisitos.innerHTML = "Selecciona un torneo para ver sus reglas, cupos y restricciones.";
+            // Captura de valores según los IDs de tu HTML
+            const apodo = document.getElementById("apodo").value.trim();
+            const run = document.getElementById("run").value.trim();
+            const nombre = document.getElementById("nombre").value.trim();
+            const apellidos = document.getElementById("apellidos").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const contrasena = document.getElementById("contrasena").value.trim();
+
+            if (mensajeError) {
+                mensajeError.classList.add("d-none");
+                mensajeError.innerHTML = "";
             }
+
+            if (!apodo || !run || !nombre || !apellidos || !correo || !contrasena) {
+                mostrarError("Todos los campos con asterisco (*) son obligatorios.");
+                return;
+            }
+
+            if (!validarRun(run)) {
+                mostrarError("El RUN ingresado no es válido. Debe tener entre 7 y 9 caracteres, sin puntos ni guion.");
+                return;
+            }
+
+
+            if (!validarCorreo(correo)) {
+                mostrarError("El correo debe pertenecer a @duoc.cl, @profesor.duoc.cl o @gmail.com.");
+                return;
+            }
+
+
+            if (contrasena.length < 4 || contrasena.length > 10) {
+                mostrarError("La contraseña debe tener estrictamente entre 4 y 10 caracteres.");
+                return;
+            }
+
+
+            alert("¡Inscripción validada correctamente!");
+            formulario.reset();
         });
     }
 
 
-    if (formInscripcion) {
-        formInscripcion.addEventListener("submit", (evento) => {
-            evento.preventDefault(); // Evita recargar la página
+    function mostrarError(mensaje) {
+        if (mensajeError) {
+            mensajeError.innerHTML = `<strong>Error:</strong> ${mensaje}`;
+            mensajeError.classList.remove("d-none");
+        }
+    }
 
+    function validarCorreo(email) {
+        if (email.length > 100) return false;
+        const mailLowerCase = email.toLowerCase();
+        const dominios = ['@duoc.cl', '@profesor.duoc.cl', '@gmail.com'];
+        return dominios.some(dominio => mailLowerCase.endsWith(dominio));
+    }
 
-            document.querySelectorAll(".error-dinamico").forEach(e => e.remove());
-            let formularioValido = true;
+    function validarRun(rut) {
+        if (rut.length < 7 || rut.length > 9) return false;
+        const formatoValido = /^[0-9]+[0-9kK]$/;
+        if (!formatoValido.test(rut)) return false;
 
-
-            const tipoParticipante = document.getElementById("tipo-participante");
-            const correoContacto = document.getElementById("correo-contacto");
-            
-
-            const mostrarError = (elemento, mensaje) => {
-                const error = document.createElement("div");
-                error.className = "text-danger small mt-1 error-dinamico";
-                error.textContent = mensaje;
-                elemento.parentNode.appendChild(error);
-                formularioValido = false;
-            };
-
-
-            if (tipoParticipante && tipoParticipante.value === "") {
-                mostrarError(tipoParticipante, "Debes seleccionar si participas individualmente o en equipo.");
+        const cuerpo = rut.slice(0, -1);
+        const dv = rut.slice(-1).toUpperCase();
+        
+        let suma = 0;
+        let multiplo = 2;
+        
+        for (let i = 1; i <= cuerpo.length; i++) {
+            let index = multiplo * rut.charAt(cuerpo.length - i);
+            suma = suma + index;
+            if (multiplo < 7) {
+                multiplo = multiplo + 1;
+            } else {
+                multiplo = 2;
             }
-
-
-            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (correoContacto) {
-                const valorCorreo = correoContacto.value.trim();
-                if (valorCorreo === "") {
-                    mostrarError(correoContacto, "El correo electrónico es obligatorio.");
-                } else if (!regexCorreo.test(valorCorreo)) {
-                    mostrarError(correoContacto, "Ingresa un formato de correo electrónico válido (ejemplo@correo.com).");
-                }
-            }
-
-
-            if (selectTorneo && selectTorneo.value === "") {
-                mostrarError(selectTorneo, "Debes seleccionar un torneo para inscribirte.");
-            }
-
-
-            if (formularioValido) {
-                alert("Inscripción validada y enviada con éxito.");
-                formInscripcion.reset();
-                if (resumenRequisitos) {
-                    resumenRequisitos.innerHTML = "Selecciona un torneo para ver sus reglas, cupos y restricciones.";
-                }
-            }
-        });
+        }
+        
+        const dvEsperado = 11 - (suma % 11);
+        let dvCalculado = dvEsperado.toString();
+        if (dvEsperado === 11) dvCalculado = '0';
+        if (dvEsperado === 10) dvCalculado = 'K';
+        
+        return dvCalculado === dv;
     }
 });
