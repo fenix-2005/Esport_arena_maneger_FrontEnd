@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- header, se esta usando bootsrapt y css al mismo tiempo -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inicio | eSports Arena Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body>
     <header class="py-3 shadow-sm">
       <div class="container d-flex flex-wrap justify-content-between align-items-center">
         <h1 class="titulo-principal ">eSports Arena Manager</h1>
         <nav>
+          <!-- Se estan usando 5 dirrecion para poder mover a la gente a travez de las paginas -->
           <ul class="nav">
             <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
             <li class="nav-item"><a href="torneos/index.html" class="nav-link">Torneos</a></li>
@@ -29,6 +32,8 @@
         <p>Plataforma para organizar torneos de videojuegos competitivos.</p>
       </section>
 
+        <!-- USando base de torneos para ser modificadas por js  -->
+
       <section id="torneos-destacados" class="row g-4">
         <article class="col-md-4">
           <div class="card tarjeta p-4 text-center">
@@ -39,6 +44,7 @@
         </article>
       </section>
 
+        <!-- Video de ejemplo para la presentacion-->
         <section class="text-center seccion-video mt-5">
             <h4 class="text-info mb-4">La Experiencia eSports</h4>
             
@@ -48,11 +54,12 @@
     
         </section>
     </main>
-
+    <!-- Footer basico con solo los copyrigth -->
     <footer class="py-4 mt-auto text-center">
       <p class="mb-0">© 2026 eSports Arena Manager. Todos los derechos reservados.</p>
     </footer>
-
+    
+    <!-- Usando bootstrap y js  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>

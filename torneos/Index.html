@@ -23,7 +23,7 @@
             </nav>
             </div>
         </header>
-
+        <!-- Busqueda de torneos falsa simplemente es un mockup  -->
         <main class="container my-5">
             <div class="mb-4">
             <h2>Explorar Torneos</h2>
@@ -32,11 +32,16 @@
 
             <section class="card tarjeta border-secondary mb-5">
             <div class="card-body">
+
                 <form id="form-filtros" class="row g-3" novalidate>
+
+                    <!-- busqueda por nombre -->
                 <div class="col-md-3">
                     <label for="buscar" class="form-label text-info">Buscar por nombre</label>
                     <input type="text" id="buscar" class="form-control bg-dark text-light border-secondary" placeholder="Ej: Copa Valorant">
                 </div>
+
+                <!-- Busqueda por juego -->
                 <div class="col-md-2">
                     <label for="filtro-juego" class="form-label text-info">Juego</label>
                     <select id="filtro-juego" class="form-select bg-dark text-light border-secondary">
@@ -46,6 +51,7 @@
                     <option value="lol">League of Legends</option>
                     </select>
                 </div>
+                <!-- Busqueda por estado -->
                 <div class="col-md-2">
                     <label for="filtro-estado" class="form-label text-info">Estado</label>
                     <select id="filtro-estado" class="form-select bg-dark text-light border-secondary">
@@ -55,6 +61,7 @@
                     <option value="finalizado">Finalizado</option>
                     </select>
                 </div>
+                <!-- Filtros de fecha -->
                 <div class="col-md-2">
                     <label for="fecha-inicio" class="form-label text-info">Fecha Inicial</label>
                     <input type="date" id="fecha-inicio" class="form-control bg-dark text-light border-secondary">
@@ -73,6 +80,7 @@
 
             <section class="row g-4" id="contenedor-torneos">
             
+                <!-- Tarjeta de torneo es un mockup  -->
             <article class="col-md-6 col-lg-4">
                 <div class="card tarjeta h-100 border-secondary">
                 <div class="card-body">
